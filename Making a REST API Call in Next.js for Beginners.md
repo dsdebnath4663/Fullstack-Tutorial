@@ -19,18 +19,18 @@ Define a function to make a **GET** request using **Axios** (or any HTTP client 
 ```js
 // restClient.js
 
-import axios from 'axios';
 
 // Function to fetch job applications statuses
 export const fetchJobApplicationsStatus = async () => {
   try {
-    const response = await axios.get('/api/job-applications/statuses');
+    const response = await restClient.get('/api/job-applications/statuses');
     return response.data; // Return the response data
   } catch (error) {
     console.error('Error fetching job applications:', error);
     throw error; // Throw the error for further handling
   }
 };
+export default restClient;
 ```
 
 ---
