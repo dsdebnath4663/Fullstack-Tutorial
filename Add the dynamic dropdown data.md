@@ -2,6 +2,22 @@ To dynamically add values to the `<select>` dropdown in React, you can store the
 
 Here's how you can modify your code to add values dynamically:
 
+
+### Step 0: transform the response array into the required `assessmentOptions` format dynamically
+
+
+```javascript
+const response = ["Leadership", "Strategic Thinking", "Teamwork", "Problem Solving"];
+
+const assessmentOptions = response.map(item => ({
+  value: item,
+  label: item
+}));
+
+console.log(assessmentOptions);
+```
+
+This code uses the `map()` method to loop over each element in the `response` array and create an object with `value` and `label` for each item. The result will be an array of objects in the desired format.
 ### Step 1: Add the dynamic options data (for example, an array)
 
 ```javascript
