@@ -62,7 +62,7 @@ const handleInputChange = (e) => {
 
 ---
 
-## **Step 3.1: Add  Input Fields in ValidationHelper to validate**
+## **Step 3.1: Add  Input Fields in ValidationHelper.js to validate**
 
 Here's the updated **required validation fields** section with comments explaining when to use each validation type:
 
