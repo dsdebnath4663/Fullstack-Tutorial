@@ -141,6 +141,48 @@ Use the **helper functions** to show validation styles and messages in the form.
 Ensure all fields are validated before submitting the form.
 
 ```jsx
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let valid = true;
+    const newErrors = {};
+    const touched = {};
+
+    if (!formData) {
+      console.error("❌ formData is undefined");
+      alert("❌ formData is undefined");
+      return;
+    }
+    Object.keys(formData).forEach((field) => {
+      if (formData[field] === undefined || formData[field] === null) {
+        console.warn(`Field ${field} is undefined/null`);
+        alert(`❌ Field ${field} is undefined/null`);
+      }
+      const error = ValidationHelper.validateField(field, formData[field], typeof formData[field]);
+      if (error) valid = false;
+      newErrors[field] = error;
+
+      touched[field] = true;
+    });
+
+    setFormErrors(newErrors);
+    setTouchedFields(touched);
+
+    if (valid) {
+      console.log("✅ All input fields are filled. Submitting form...", formData);
+    } else {
+      console.log(
+        "❌ Form has missing inputs fields. Fix errors before submitting."
+      );
+      alert("⚠️ Some  input fields are missing. Please fill them in.");
+      console.log("Form has validation errors.");
+    }
+  }
+```
+
+### Alternate
+
+```jsx
 const handleSubmit = (e) => {
   e.preventDefault();
   let valid = true;
